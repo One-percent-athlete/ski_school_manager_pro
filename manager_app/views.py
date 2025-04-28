@@ -91,3 +91,26 @@ def logout_user(request):
     logout(request)
     messages.success(request, ("已退出。下次再见。"))
     return redirect("login_user")
+
+@login_required(login_url='/login_user/')
+def register_user(request):
+    if request.user.is_superuser:
+        form = SignUpForm()
+        if request.method == "POST":
+            form = SignUpForm(request.POST)
+            if form.is_valid():
+                form.save()
+                username = form.cleaned_data["username"]
+                password = form.cleaned_data["password1"]
+                user = authenticate(username=username, password=password)
+                messages.success(request, ("请输入简历。"))
+            else:
+                messages.success(request, ("请再试一次。"))
+                return redirect("register_user")
+        else:
+            return render(request, "authentication/register_user.html", {
+                "form": form
+            })
+    else:
+        messages.success(request, ("只有管理人员可以访问此页面。"))
+        return redirect("login_user")
