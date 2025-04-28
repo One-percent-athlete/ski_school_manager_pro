@@ -85,3 +85,9 @@ def login_user(request):
             return redirect("login_user")
     else:
         return render(request, "authentication/login.html", {}) 
+    
+@login_required(login_url='/login_user/')
+def logout_user(request):
+    logout(request)
+    messages.success(request, ("已退出。下次再见。"))
+    return redirect("login_user")
