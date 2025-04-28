@@ -68,3 +68,20 @@ def schedule(request):
     else:
         return redirect('login_user')
     
+def login_user(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            if user.profile:
+                messages.success(request, (f"{user.profile}， 欢迎回来。"))
+            else:
+                messages.success(request, ("欢迎回来。"))
+            return redirect("home")
+        else:
+            messages.success(request, ("账号或者是密码错误。请再试一次。"))
+            return redirect("login_user")
+    else:
+        return render(request, "authentication/login.html", {}) 
