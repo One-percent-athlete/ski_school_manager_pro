@@ -73,7 +73,6 @@ class UserProfileForm(forms.ModelForm):
         ('其他', '其他'),
         ('无', '无'),
     ]
-
 	YEAR_CHOICES = [
         ('1年', '1年'),
         ('2年', '2年'),
@@ -81,7 +80,6 @@ class UserProfileForm(forms.ModelForm):
         ('4年', '4年'),
         ('5年以上', '5年以上'),
     ]
-	
 	FARE_PECENTAGE = [
         ('20%', '20%'),
         ('21.5%', '21.5%'),
@@ -101,17 +99,14 @@ class UserProfileForm(forms.ModelForm):
         ('44.5%', '44.5%'),
         ('46%', '46%'),
     ]
-	
 	FULL_ATTENDANCE = [
         ('3%', '3%'),
         ('0%', '0%'),
     ]
-	
 	CUSTOMERS_EVALUATION = [
         ('2%', '2%'),
         ('0%', '0%'),
     ]
-	
 	COMPANY_EVALUATION = [
         ('5%', '5%'),
         ('0%', '0%'),
@@ -151,7 +146,6 @@ class LessonForm(forms.ModelForm):
         ('電子支付', '電子支付'),
         ('未支付', '未支付'),
     ]
-	
 	PLACE = [
         ('比洛夫', '比洛夫'),
         ('花园', '花园'),
@@ -160,7 +154,6 @@ class LessonForm(forms.ModelForm):
         ('留寿都', '留寿都'),
         ('喜乐乐', '喜乐乐'),
     ]
-	
 	LESSON_TYPE = [
         ('初学', '初学'),
         ('初级', '初级'),
