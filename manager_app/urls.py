@@ -14,7 +14,7 @@ urlpatterns = [
     path('update_profile/<int:profile_id>/', views.update_profile, name="update_profile"),
 
     path('lesson_list/', views.lesson_list, name="lesson_list"),
-    # path('add_lesson/', views.add_lesson, name="add_lesson"),
+    path('add_lesson/', views.add_lesson, name="add_lesson"),
     # path('delete_lesson/<int:lesson_id>/', views.delete_lesson, name="delete_lesson"),
     # path('lesson_details/<int:lesson_id>/', views.lesson_details, name="lesson_details"),
 
