@@ -173,3 +173,21 @@ def lesson_list(request):
             # else:
                 # lessons = lesson_list
     return render(request, "lesson/lesson_list.html", {"lessons": lessons})
+
+@login_required(login_url='/login_user/')
+def add_lesson(request):
+    form = LessonForm()
+    if request.method == "POST":
+        form = LessonForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            messages.success(request, ("课程排好了。"))
+            return redirect("lesson_list")
+        else:
+            messages.success(request, ("请再试一次。"))
+            return redirect("lesson_list")
+    else:
+        return render(request, "lesson/add_lesson.html", {
+            "form": form
+        })
+    
