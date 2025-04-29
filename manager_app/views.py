@@ -139,4 +139,20 @@ def profile_list(request):
             return render(request, "profile/profile_list.html", { "profiles": profiles, "contract": contract })
     else:
         return redirect('login_user')
-    
+
+@login_required(login_url='/login_user/')
+def update_profile(request, profile_id):
+    if request.user.is_superuser:
+        if request.user.is_authenticated:
+            profile = Profile.objects.get(id=profile_id)
+            form = UserProfileForm(request.POST or None, instance=profile)
+            if form.is_valid():
+                form.save()
+                messages.success(request, "简历更新了。")
+                return redirect("profile_list")
+            return render(request, "profile/update_profile.html", {"form": form , "profile": profile })
+        else:
+            messages.success(request, "请先登录。")
+            return redirect("login_user")
+    else:
+        messages.success(request, ("只有管理人员可以访问此页面。"))
