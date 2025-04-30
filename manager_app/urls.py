@@ -20,6 +20,6 @@ urlpatterns = [
 
     path('profile_lesson/', views.profile_lesson, name="profile_lesson"),
 
-    # path('commission/', views.commission, name="commission"),
+    path('commission/', views.commission, name="commission"),
     # path('commission/<int:profile_id>/', views.commission, name="commission_profile"),
 ]
