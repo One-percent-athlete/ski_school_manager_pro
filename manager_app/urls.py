@@ -18,7 +18,7 @@ urlpatterns = [
     path('delete_lesson/<int:lesson_id>/', views.delete_lesson, name="delete_lesson"),
     path('lesson_details/<int:lesson_id>/', views.lesson_details, name="lesson_details"),
 
-    # path('profile_lesson/', views.profile_lesson, name="profile_lesson"),
+    path('profile_lesson/', views.profile_lesson, name="profile_lesson"),
 
     # path('commission/', views.commission, name="commission"),
     # path('commission/<int:profile_id>/', views.commission, name="commission_profile"),
