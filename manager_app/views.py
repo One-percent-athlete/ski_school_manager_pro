@@ -175,6 +175,20 @@ def lesson_list(request):
     return render(request, "lesson/lesson_list.html", {"lessons": lessons})
 
 @login_required(login_url='/login_user/')
+def lesson_details(request, lesson_id):
+    if request.user.is_authenticated:
+        lesson = Lesson.objects.get(id=lesson_id)
+        form = LessonForm(request.POST or None, instance=lesson)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "课程更新了。")
+            return redirect("lesson_list")
+        return render(request, "lesson/lesson_details.html", {"form": form , "lesson": lesson })
+    else:
+        messages.success(request, "请先登录。")
+        return redirect("login_user")
+
+@login_required(login_url='/login_user/')
 def add_lesson(request):
     form = LessonForm()
     if request.method == "POST":
