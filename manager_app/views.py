@@ -202,3 +202,10 @@ def delete_lesson(request, lesson_id):
         messages.success(request, "请先登录。")
         return redirect("login_user")
     
+@login_required(login_url='/login_user/')
+def profile_lesson(request):   
+    if request.user.is_authenticated:
+        profiles = Profile.objects.all()
+        lessons = Lesson.objects.all().order_by('-date_created')
+    return render(request, "lesson/profile_lesson.html", {"profiles": profiles, "lessons": lessons})
+
