@@ -191,3 +191,14 @@ def add_lesson(request):
             "form": form
         })
     
+@login_required(login_url='/login_user/')
+def delete_lesson(request, lesson_id):
+    if request.user.is_authenticated:
+        current_lesson = Lesson.objects.get(id=lesson_id)
+        current_lesson.delete()
+        messages.success(request, "课程已被消除。")
+        return redirect("lesson_list")
+    else:
+        messages.success(request, "请先登录。")
+        return redirect("login_user")
+    
