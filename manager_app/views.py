@@ -223,3 +223,18 @@ def profile_lesson(request):
         lessons = Lesson.objects.all().order_by('-date_created')
     return render(request, "lesson/profile_lesson.html", {"profiles": profiles, "lessons": lessons})
 
+
+@login_required(login_url='/login_user/')
+def commission(request):
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            keyword = request.POST['keyword']
+            profiles = Profile.objects.filter(fullname__contains=keyword).order_by('-date_created')
+            return render(request, "commission.html", {"profiles": profiles, "keyword": keyword})
+        else:
+            profiles = Profile.objects.all()
+            lessons = Lesson.objects.all()
+            return render(request, "commission.html", { "profiles": profiles, "lessons": lessons })
+    else:
+        messages.success(request, "请先登录。")
+        return redirect("login_user")
