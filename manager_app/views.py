@@ -104,6 +104,7 @@ def register_user(request):
                 password = form.cleaned_data["password1"]
                 user = authenticate(username=username, password=password)
                 messages.success(request, ("请输入简历。"))
+                return redirect("profile/update_profile", user.pk)
             else:
                 messages.success(request, ("请再试一次。"))
                 return redirect("register_user")
