@@ -43,7 +43,10 @@
                         职务
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        連絡先
+                        电话
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        邮箱
                     </th>
                     {% if contract == "管理" %}
                     <th scope="col" class="px-6 py-3">
@@ -70,6 +73,9 @@
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         {{ profile.phone }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ profile.email }}
                     </td>
                     {% if contract == "管理" %}
                     <td class="px-6 py-4 whitespace-nowrap">
