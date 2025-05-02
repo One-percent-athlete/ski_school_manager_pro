@@ -48,6 +48,15 @@
                     <th scope="col" class="px-6 py-3">
                         邮箱
                     </th>
+                    <th scope="col" class="px-6 py-3">
+                        微信
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        LINE
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Whatsapp
+                    </th>
                     {% if contract == "管理" %}
                     <th scope="col" class="px-6 py-3">
                         備考
@@ -76,6 +85,15 @@
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         {{ profile.email }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ profile.wechat }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ profile.line }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ profile.whatsapp }}
                     </td>
                     {% if contract == "管理" %}
                     <td class="px-6 py-4 whitespace-nowrap">
