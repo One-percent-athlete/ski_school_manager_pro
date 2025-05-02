@@ -180,6 +180,4 @@ class LessonForm(forms.ModelForm):
 	class Meta:
 		model = Lesson
 		fields = ('lesson_number', 'instructors', 'client', 'lesson_type', 'address', 'place', 'payment_type', 'payment_amount', 'payment_date', 'note', 'finished', 'start_date', 'end_date', 'start_time', 'end_time')
-		labels = {
-			'instructors': '',
-		}
+		
