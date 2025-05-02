@@ -39,7 +39,16 @@
                     </th>
                     {% if request.user.profile.contract_type == "管理" %}
                     <th scope="col" class="px-6 py-3">
-                        提成
+                        提成比率
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        全勤提成
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        客人評価
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        公司評価
                     </th>
                     <th scope="col" class="px-6 py-3">
                         備考
@@ -65,7 +74,16 @@
                     </td>
                     {% if request.user.profile.contract_type == "管理" %}
                     <td class="px-6 py-4 whitespace-nowrap">
-                        {{ profile.commission }}
+                        {{ profile.fare_percentage }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ profile.full_attendance }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ profile.customers_evaluation }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ profile.company_evaluation }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         {{ profile.note }}
