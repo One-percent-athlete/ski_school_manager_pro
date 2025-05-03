@@ -38,7 +38,7 @@
                         {% if profile in lesson.instructors.all %}
                         <a href="{% url 'lesson_details' lesson.id %}" class="text-gray-700">{{
                             lesson.instructors.all|join:", " }},
-                            {% elif profile in genba.attendees.all %}
+                            {% elif profile in lesson.instructors.all %}
                             <a href="{% url 'lesson_details' lesson.id %}">{{ lesson.place }},
                                 {% endif %}
                                 {% endfor %}
