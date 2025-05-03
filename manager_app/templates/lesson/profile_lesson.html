@@ -36,9 +36,10 @@
                     <td class="px-6 py-4 whitespace-nowrap">
                         {% for lesson in lessons %}
                         {% if lesson.head_person == profile %}
-                        <a href="{% url 'lesson_details' lesson.id %}" class="text-gray-700">{{ lesson.name }},
+                        <a href="{% url 'lesson_details' lesson.id %}" class="text-gray-700">{{
+                            lesson.instructors.all|join:", " }},
                             {% elif profile in genba.attendees.all %}
-                            <a href="{% url 'lesson_details' lesson.id %}">{{ lesson.name }},
+                            <a href="{% url 'lesson_details' lesson.id %}">{{ lesson.place }},
                                 {% endif %}
                                 {% endfor %}
                     </td>
