@@ -9,6 +9,17 @@
         <div class="px-auto">
             <h1 class="text-4xl pt-10 pb-5">連絡事項</h1>
         </div>
+        <form method="post" actio="{% url 'home' %}">
+            {% csrf_token %}
+            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">連絡事項</label>
+            <input id="content" name="content" rows="4"
+                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="連絡事項"></input>
+            <button type="submit"
+                class="inline-flex items-center px-5 py-2.5 mt-5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+                追加
+            </button>
+        </form>
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
             {% include 'components/calendar.html' %}
         </div>
