@@ -87,7 +87,7 @@ def login_user(request):
         if user is not None:
             login(request, user)
             if user.profile:
-                messages.success(request, (f"{user.profile}， 欢迎回来。"))
+                messages.success(request, (f"{user.profile}, 欢迎回来。"))
             else:
                 messages.success(request, ("欢迎回来。"))
             return redirect("home")
