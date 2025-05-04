@@ -20,6 +20,25 @@
                 追加
             </button>
         </form>
+        <ul class="mt-5 space-y-1 text-gray-500 mb-2 text-lg font-semibold">
+            {% if notifications %}
+            {% for n in notifications %}
+            <li>
+                <p class="flex">{{n.content}} - {{ n.author.profile }}
+                    {% if request.user.profile.contract_type == '管理' %}
+                    <a href="{% url 'delete_notification' n.id %}"><svg
+                            class="w-6 h-6 dark:text-red-500 text-center ml-6" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18 17.94 6M18 18 6.06 6" />
+                        </svg>
+                    </a>
+                    {% endif %}
+                </p>
+            </li>
+            {% endfor %}
+            {% endif %}
+        </ul>
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
             {% include 'components/calendar.html' %}
         </div>
