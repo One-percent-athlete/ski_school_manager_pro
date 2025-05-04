@@ -73,10 +73,10 @@ def delete_notification(request, notification_id):
     if request.user.is_authenticated:
         notification = Notification.objects.get(id=notification_id)
         notification.delete()
-        messages.success(request, "連絡事項を削除しました。")
+        messages.success(request, "連絡事項已被。")
         return redirect("home")
     else:
-        messages.success(request, "ログインしてください。")
+        messages.success(request, "请先登录。")
         return redirect("login_user")
     
 def login_user(request):
