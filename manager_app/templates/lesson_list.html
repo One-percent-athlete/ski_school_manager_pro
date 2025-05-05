@@ -12,6 +12,10 @@
                 {% else %}
                 <a class="pl-8" href="{% url 'add_lesson' %}">＋</a>
                 {% endif %}
+                {% if request.user.profile.contract_type == "管理" %}
+                <a class="ml-6 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                    href="{% url 'profile_lesson' %}">教练别课程</a>
+                {% endif %}
             </h1>
             <h2 class="text-6xl m-0 mr-3"></h2>
         </div>
@@ -120,8 +124,42 @@
             <tbody>
                 {% if lesson_list %}
                 {% for lesson in lesson_list %}
+                {% if lesson.finished == True %}
                 <tr class="border-b">
                     <th scope="row" class="pl-6 pr-3 py-4 font-medium whitespace-nowrap text-gray-900">
+                        <a href="{% url 'lesson_details' lesson.id %}" style="color: {{ lesson.color }};">
+                            {{ lesson.lesson_number }}
+                            <p
+                                class="ml-6 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-xs px-3 py-1 me-2 mb-2 dark:bg-green-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-green-800">
+                                已完成</p>
+                        </a>
+                    </th>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ lesson.lesson_type }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ lesson.instructors.all|join:", " }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ lesson.client }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ lesson.address }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ lesson.place }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ lesson.note }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <a href="{% url 'lesson_details' lesson.id %}"
+                            class="font-medium text-blue-600 hover:underline">編集</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr class="border-b">
+                    <th scope="row" class="pl-6 pr-3 py-4 font-medium whitespace-nowrap">
                         <a href="{% url 'lesson_details' lesson.id %}" style="color: {{ lesson.color }};">
                             {{ lesson.lesson_number }}
                         </a>
@@ -149,6 +187,7 @@
                             class="font-medium text-blue-600 hover:underline">編集</a>
                     </td>
                 </tr>
+                {% endif %}
                 {% endfor %}
                 {% endif %}
             </tbody>
