@@ -8,7 +8,7 @@
     <div class="relative overflow-x-auto shadow-md">
         <div class="px-auto">
             <h1 class="text-4xl py-10">今日课程
-                {% if request.user.profile.contract_type == "下請け" %}
+                {% if request.user.profile.contract_type == "教练" %}
                 {% else %}
                 <a class="pl-8" href="{% url 'add_lesson' %}">＋</a>
                 {% endif %}
