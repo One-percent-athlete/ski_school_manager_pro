@@ -21,14 +21,14 @@
                 追加
             </button>
         </form>
-        <ul class="mt-5 space-y-1 text-gray-500 mb-2 text-lg font-semibold">
+        <ul class="mt-5 space-y-1">
             {% if notifications %}
             <div class="px-auto">
-                <h1 class="text-4xl pt-10 pb-5">注意事项</h1>
+                <h1 class="text-4xl pt-10 pb-5 text-lg font-semibold">注意事项</h1>
             </div>
             {% for n in notifications %}
             <li>
-                <p class="flex mb-5">{{n.content}} - {{ n.author.profile }}
+                <p class="flex mb-5 text-gray-500 mb-2">{{n.content}} - {{ n.author.profile }}
                     {% if request.user.profile.contract_type == '管理' %}
                     <a href="{% url 'delete_notification' n.id %}"><svg
                             class="w-6 h-6 dark:text-red-500 text-center ml-6" aria-hidden="true"
