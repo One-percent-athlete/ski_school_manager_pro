@@ -169,22 +169,22 @@ def update_profile(request, profile_id):
     else:
         messages.success(request, ("只有管理人员可以访问此页面。"))
 
-@login_required(login_url='/login_user/')
-def lesson_list(request):   
-    if request.user.is_authenticated:
-        lesson_list = Lesson.objects.all().order_by('-date_created')
-        lessons = []
-        if request.method == "POST":
-            keyword = request.POST['keyword']
-            result_list = Lesson.objects.filter(name__contains=keyword).order_by('-date_created')
-            return render(request, "lesson/lesson_search_list.html", {"result_list": result_list, "keyword": keyword})
-            # # if request.user.profile.contract_type == '下請け':
-            # #     for lesson in lesson_list:
-            # #         if lesson.head_person == request.user.profile or request.user.profile in lesson.attendees.all():
-            # #             lesson.append(lesson)
-            # else:
-                # lessons = lesson_list
-    return render(request, "lesson/lesson_list.html", {"lessons": lessons})
+# @login_required(login_url='/login_user/')
+# def lesson_list(request):   
+#     if request.user.is_authenticated:
+#         lesson_list = Lesson.objects.all().order_by('-date_created')
+#         lessons = []
+#         if request.method == "POST":
+#             keyword = request.POST['keyword']
+#             result_list = Lesson.objects.filter(name__contains=keyword).order_by('-date_created')
+#             return render(request, "lesson/lesson_search_list.html", {"result_list": result_list, "keyword": keyword})
+#             # # if request.user.profile.contract_type == '下請け':
+#             # #     for lesson in lesson_list:
+#             # #         if lesson.head_person == request.user.profile or request.user.profile in lesson.attendees.all():
+#             # #             lesson.append(lesson)
+#             # else:
+#                 # lessons = lesson_list
+#     return render(request, "lesson/lesson_list.html", {"lessons": lessons})
 
 @login_required(login_url='/login_user/')
 def lesson_details(request, lesson_id):
