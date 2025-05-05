@@ -5,9 +5,10 @@
 
 {% block content %}
 <div class="p-4 sm:ml-64">
+
     <div class="relative overflow-x-auto shadow-md">
         <div class="px-auto">
-            <h1 class="text-4xl pt-10 pb-5">連絡事項</h1>
+            <h1 class="text-4xl pt-10 pb-5">主页</h1>
         </div>
         <form method="post" actio="{% url 'home' %}">
             {% csrf_token %}
@@ -22,6 +23,9 @@
         </form>
         <ul class="mt-5 space-y-1 text-gray-500 mb-2 text-lg font-semibold">
             {% if notifications %}
+            <div class="px-auto">
+                <h1 class="text-4xl pt-10 pb-5">注意事项</h1>
+            </div>
             {% for n in notifications %}
             <li>
                 <p class="flex mb-5">{{n.content}} - {{ n.author.profile }}
