@@ -67,7 +67,7 @@ def lesson_list(request):
             "month": month,
             "cal": cal,
         }
-         return render(request, "lesson_list.html", context=context)
+         return render(request, "lesson/lesson_list.html", context=context)
     else:
         return redirect('login_user')
     
