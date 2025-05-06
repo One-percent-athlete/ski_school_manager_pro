@@ -127,6 +127,13 @@
             </tbody>
         </table>
     </div>
+    {% else %}
+    <div class="relative overflow-x-auto shadow-md">
+        <div class="px-auto">
+            <h1 class="text-4xl py-10">搜索结果</h1>
+            <h2 class="text-2xl m-0 mr-3">搜索课程编号"{{ keyword }}",没有搜索到记录</h2>
+        </div>
+    </div>
     {% endif %}
     <div class="relative overflow-x-auto shadow-md">
         <div class="px-auto">
