@@ -41,15 +41,17 @@ def lesson_list(request):
     if request.user.is_authenticated:
         lesson_list = Lesson.objects.all().order_by('-date_created')
         lessons_today = []
+        result_list = []
+        keyword = ''
         for lesson in lesson_list:
             date = datetime.datetime(now.year, now.month, now.day)
             start_date = datetime.datetime(lesson.start_date.year, lesson.start_date.month, lesson.start_date.day)
             end_date = datetime.datetime(lesson.end_date.year, lesson.end_date.month, lesson.end_date.day)
             if start_date <= date <= end_date:
                 lessons_today.append(lesson)
-                if request.method == "POST":
-                    keyword = request.POST['keyword']
-                    result_list = Lesson.objects.filter(name__contains=keyword).order_by('-date_created')
+        if request.method == "POST":
+            keyword = request.POST['keyword']
+            result_list = Lesson.objects.filter(id=keyword).order_by('-date_created')
     year = int(now.year)
     month = int(now.month)
     cal = calendar.HTMLCalendar().formatmonth(year, month)
