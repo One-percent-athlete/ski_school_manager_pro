@@ -47,10 +47,9 @@ def lesson_list(request):
             end_date = datetime.datetime(lesson.end_date.year, lesson.end_date.month, lesson.end_date.day)
             if start_date <= date <= end_date:
                 lessons_today.append(lesson)
-                # if request.user.profile.contract_type == '下請け':
-                #     for lesson in lessons_today:
-                #         if lesson.head_person != request.user.profile or request.user.profile not in lesson.attendees.all():
-                #             lessons_today.remove(lesson)
+                if request.method == "POST":
+                    keyword = request.POST['keyword']
+                    result_list = Lesson.objects.filter(name__contains=keyword).order_by('-date_created')
     year = int(now.year)
     month = int(now.month)
     cal = calendar.HTMLCalendar().formatmonth(year, month)
@@ -60,6 +59,8 @@ def lesson_list(request):
          context = {
             "lesson_list": lesson_list,
             "lessons_today":lessons_today,
+            "result_list": result_list,
+            "keyword": keyword,
             "year": year,
             "month": month,
             "cal": cal,
