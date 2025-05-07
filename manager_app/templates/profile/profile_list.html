@@ -167,6 +167,12 @@
                     </td>
                     {% endif %}
                 </tr>
+                {% else %}
+                <tr class="border-b">
+                    <td colspan="7" class="px-6 py-4 text-center">
+                        今日没有课程安排
+                    </td>
+                </tr>
                 {% endif %}
                 {% endfor %}
             </tbody>
