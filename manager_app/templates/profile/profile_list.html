@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 {% block title %}
-教练管理人员一覧
+人员一覧
 {% endblock %}
 
 {% block content %}
 <div class="p-4 sm:ml-64">
-    {% if contract == "下請け" %}
-    {% else %}
     <div class="relative overflow-x-auto shadow-md">
         <div class="px-auto">
             <h1 class="text-4xl py-10">人员一覧
@@ -172,6 +170,5 @@
             </tbody>
         </table>
     </div>
-    {% endif %}
 </div>
 {% endblock content %}
