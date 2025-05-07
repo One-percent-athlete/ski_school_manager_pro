@@ -52,13 +52,12 @@ def lesson_list(request):
         if request.method == "POST":
             keyword = request.POST['keyword']
             result_list = Lesson.objects.filter(id=keyword).order_by('-date_created')
-    year = int(now.year)
-    month = int(now.month)
-    cal = calendar.HTMLCalendar().formatmonth(year, month)
-    cal = cal.replace('<td ', '<td width="150" height="150" hover')
-    cal = mark_safe(cal)
-    if request.user.is_authenticated:
-         context = {
+        year = int(now.year)
+        month = int(now.month)
+        cal = calendar.HTMLCalendar().formatmonth(year, month)
+        cal = cal.replace('<td ', '<td width="150" height="150" hover')
+        cal = mark_safe(cal)
+        context = {
             "lesson_list": lesson_list,
             "lessons_today":lessons_today,
             "result_list": result_list,
@@ -67,7 +66,7 @@ def lesson_list(request):
             "month": month,
             "cal": cal,
         }
-         return render(request, "lesson/lesson_list.html", context=context)
+        return render(request, "lesson/lesson_list.html", context=context)
     else:
         return redirect('login_user')
     
