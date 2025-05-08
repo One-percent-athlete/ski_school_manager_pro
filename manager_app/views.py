@@ -22,10 +22,6 @@ def home(request):
             end_date = datetime.datetime(lesson.end_date.year, lesson.end_date.month, lesson.end_date.day)
             if start_date <= date <= end_date:
                 lessons.append(lesson)
-                # if request.user.profile.contract_type == '下請け':
-                #     for genba in lessons:
-                #         if genba.head_person != request.user.profile or request.user.profile not in lesson.attendees.all():
-                #             lessons.remove(lesson)
         if request.method == "POST":
             content = request.POST.get("content")
             author = User.objects.get(id=request.user.id)
