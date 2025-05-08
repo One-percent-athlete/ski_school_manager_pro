@@ -28,7 +28,8 @@
             </div>
             {% for n in notifications %}
             <li>
-                <p class="flex mb-5 text-gray-500 mb-2">{{n.content}} - {{ n.author.profile }}
+                <p class="flex mb-5 text-gray-500 mb-2">
+                    <span class="text-gray-900 font-medium text">{{n.content}}</span> - {{ n.author.profile }}
                     {% if request.user.profile.contract_type == '管理' %}
                     <a href="{% url 'delete_notification' n.id %}"><svg
                             class="w-6 h-6 dark:text-red-500 text-center ml-6" aria-hidden="true"
