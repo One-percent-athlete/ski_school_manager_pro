@@ -42,8 +42,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% if lesson_list %}
-                {% for lesson in lesson_list %}
+                {% for lesson in result_list %}
                 {% if lesson.finished == True %}
                 <tr class="border-b">
                     <th scope="row" class="pl-6 pr-3 py-4 font-medium whitespace-nowrap text-gray-900">
@@ -109,7 +108,6 @@
                 </tr>
                 {% endif %}
                 {% endfor %}
-                {% endif %}
             </tbody>
         </table>
     </div>
