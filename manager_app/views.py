@@ -139,14 +139,15 @@ def delete_user(request, user_id):
 @login_required(login_url='/login_user/')
 def profile_list(request):
     if request.user.is_authenticated:
-        profiles = Profile.objects.all().order_by('-date_created')
-        contract = request.user.profile.contract_type
+
+        result_list = []
+        keyword = ''
         if request.method == "POST":
             keyword = request.POST['keyword']
-            result_list = Profile.objects.filter(fullname__contains=keyword).order_by('-date_created')
-            return render(request, "profile/profile_search_list.html", {"result_list": result_list, "keyword": keyword})
-        else:
-            return render(request, "profile/profile_list.html", { "profiles": profiles, "contract": contract })
+            result_list = Profile.objects.filter(id=keyword).order_by('-date_created')
+        profiles = Profile.objects.all().order_by('-date_created')
+        contract = request.user.profile.contract_type
+        return render(request, "profile/profile_list.html", { "profiles": profiles, "contract": contract })
     else:
         return redirect('login_user')
 
