@@ -54,7 +54,7 @@
                 {% if profile.is_active == True %}
                 <tr class="border-b">
                     <th scope="row" class="pl-6 pr-3 py-4 font-medium whitespace-nowrap text-gray-900">
-                        <a href="{% url 'update_profile' profile.id %}" class="text-blue-600">
+                        <a href="{% url 'profile_details' profile.id %}" class="text-blue-600">
                             {{ profile.user }}
                         </a>
                     </th>
@@ -84,7 +84,7 @@
                         {{ profile.note }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <a href="{% url 'update_profile' profile.id %}"
+                        <a href="{% url 'profile_details' profile.id %}"
                             class="font-medium text-blue-600 hover:underline">編集</a>
                     </td>
                     {% endif %}
@@ -92,7 +92,7 @@
                 {% else %}
                 <tr class="border-b">
                     <th scope="row" class="pl-6 pr-3 py-4 font-medium whitespace-nowrap text-gray-900">
-                        <a href="{% url 'update_profile' profile.id %}">
+                        <a href="{% url 'profile_details' profile.id %}">
                             {{ profile.user }}
                         </a>
                     </th>
@@ -122,7 +122,7 @@
                         {{ profile.note }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <a href="{% url 'update_profile' profile.id %}"
+                        <a href="{% url 'profile_details' profile.id %}"
                             class="font-medium text-blue-600 hover:underline">編集</a>
                     </td>
                     {% endif %}
@@ -234,7 +234,7 @@
                         {{ profile.note }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <a href="{% url 'update_profile' profile.id %}"
+                        <a href="{% url 'profile_details' profile.id %}"
                             class="font-medium text-blue-600 hover:underline">編集</a>
                     </td>
                     {% endif %}
@@ -296,7 +296,7 @@
                         {{ profile.note }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <a href="{% url 'update_profile' profile.id %}"
+                        <a href="{% url 'profile_details' profile.id %}"
                             class="font-medium text-blue-600 hover:underline">編集</a>
                     </td>
                     {% endif %}
