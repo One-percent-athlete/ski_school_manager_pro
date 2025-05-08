@@ -160,7 +160,7 @@ def profile_details(request, profile_id):
                 form.save()
                 messages.success(request, "简历更新了。")
                 return redirect("profile_list")
-            return render(request, "profile/update_profile.html", {"form": form , "profile": profile })
+            return render(request, "profile/profile_details.html", {"form": form , "profile": profile })
         else:
             messages.success(request, "请先登录。")
             return redirect("login_user")
