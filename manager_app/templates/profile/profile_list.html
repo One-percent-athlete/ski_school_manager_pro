@@ -92,6 +92,44 @@
                     </td>
                     {% endif %}
                 </tr>
+                {% else %}
+                <tr class="border-b">
+                    <th scope="row" class="pl-6 pr-3 py-4 font-medium whitespace-nowrap text-gray-900">
+                        <a href="{% url 'update_profile' profile.id %}">
+                            {{ profile.user }}
+                        </a>
+                    </th>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ profile.fullname }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ profile.contract_type }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ profile.phone }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ profile.email }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ profile.wechat }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ profile.line }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ profile.whatsapp }}
+                    </td>
+                    {% if contract == "管理" %}
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ profile.note }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <a href="{% url 'update_profile' profile.id %}"
+                            class="font-medium text-blue-600 hover:underline">編集</a>
+                    </td>
+                    {% endif %}
+                </tr>
                 {% endif %}
                 {% endfor %}
             </tbody>
