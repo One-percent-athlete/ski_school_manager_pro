@@ -143,7 +143,7 @@ def profile_list(request):
         keyword = ''
         if request.method == "POST":
             keyword = request.POST['keyword']
-            result_list = Profile.objects.filter(id=keyword).order_by('-date_created')
+            result_list = Profile.objects.filter(user__contains=keyword).order_by('-date_created')
         profiles = Profile.objects.all().order_by('-date_created')
         contract = request.user.profile.contract_type
         return render(request, "profile/profile_list.html", { "profiles": profiles, "contract": contract, "result_list":result_list, "keyword": keyword })
