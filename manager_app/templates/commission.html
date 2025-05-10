@@ -64,10 +64,10 @@
                 {% if profile.is_active == True %}
                 <tr class="border-b">
                     <th scope="row" class="pl-6 pr-3 py-4 font-medium whitespace-nowrap text-gray-900">
-                        {{ profile.user }}
+                        {{ profile.fullname }}
                     </th>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        {{ profile.fullname }}
+                        {{ profile.user }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         {{ profile.contract_type }}
