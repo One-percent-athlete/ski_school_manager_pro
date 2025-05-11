@@ -222,11 +222,11 @@ def commission(request):
         if request.method == "POST":
             keyword = request.POST['keyword']
             profiles = Profile.objects.filter(fullname__contains=keyword).order_by('-date_created')
-            return render(request, "commission.html", {"profiles": profiles, "keyword": keyword})
+            return render(request, "commission/commission.html", {"profiles": profiles, "keyword": keyword})
         else:
             profiles = Profile.objects.all()
             lessons = Lesson.objects.all()
-            return render(request, "commission.html", { "profiles": profiles, "lessons": lessons })
+            return render(request, "commission/commission.html", { "profiles": profiles, "lessons": lessons })
     else:
         messages.success(request, "请先登录。")
         return redirect("login_user")
@@ -235,7 +235,7 @@ def commission(request):
 def commission_profile(request, profile_id):
     if request.user.is_authenticated:
             profiles = Profile.objects.get(id=profile_id)
-            return render(request, "commission.html", {"profiles": profiles, "keyword": keyword})
+            return render(request, "commission/commission.html", {"profiles": profiles, "keyword": keyword})
     else:
         messages.success(request, "请先登录。")
         return redirect("login_user")
