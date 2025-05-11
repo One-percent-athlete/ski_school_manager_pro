@@ -236,7 +236,10 @@ def commission_profile(request, profile_id):
     if request.user.is_authenticated:
             profile = Profile.objects.get(id=profile_id)
             lessons = Lesson.objects.all()
-            return render(request, "commission/commission_profile.html", {"profile": profile, "lessons": lessons })
+            for lesson in lessons:
+                if lesson.profile == profile:
+                    total_earning += lesson.payment_amount
+            return render(request, "commission/commission_profile.html", {"profile": profile, "lessons": lessons, "total_earning": total_earning})
     else:
         messages.success(request, "请先登录。")
         return redirect("login_user")
