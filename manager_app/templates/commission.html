@@ -61,7 +61,6 @@
             </thead>
             <tbody>
                 {% for profile in profiles %}
-                {% if profile.is_active == True %}
                 <tr class="border-b">
                     <th scope="row" class="pl-6 pr-3 py-4 font-medium whitespace-nowrap text-gray-900">
                         {{ profile.fullname }}
@@ -94,7 +93,6 @@
                     </td>
                     {% endif %}
                 </tr>
-                {% endif %}
                 {% endfor %}
             </tbody>
         </table>
