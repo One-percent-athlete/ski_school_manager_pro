@@ -237,7 +237,7 @@ def commission_profile(request, profile_id):
             profile = Profile.objects.get(id=profile_id)
             lessons = Lesson.objects.all()
             for lesson in lessons:
-                if lesson.profile == profile:
+                if profile in lesson.instructors:
                     total_earning += lesson.payment_amount
             return render(request, "commission/commission_profile.html", {"profile": profile, "lessons": lessons, "total_earning": total_earning})
     else:
