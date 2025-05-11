@@ -235,7 +235,8 @@ def commission(request):
 def commission_profile(request, profile_id):
     if request.user.is_authenticated:
             profile = Profile.objects.get(id=profile_id)
-            return render(request, "commission/commission_profile.html", {"profile": profile})
+            lessons = Lesson.objects.all()
+            return render(request, "commission/commission_profile.html", {"profile": profile, "lessons": lessons })
     else:
         messages.success(request, "请先登录。")
         return redirect("login_user")
