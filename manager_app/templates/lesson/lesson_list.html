@@ -19,6 +19,9 @@
                         课程编号
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        付款金额
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         课程类型
                     </th>
                     <th scope="col" class="px-6 py-3">
@@ -54,6 +57,9 @@
                         </a>
                     </th>
                     <td class="px-6 py-4 whitespace-nowrap">
+                        {{ lesson.payment_amount }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
                         {{ lesson.lesson_type }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
@@ -83,6 +89,10 @@
                             {{ lesson.lesson_number }}
                         </a>
                     </th>
+
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ lesson.payment_amount }}
+                    </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         {{ lesson.lesson_type }}
                     </td>
@@ -278,10 +288,10 @@
                         </a>
                     </th>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        {{ lesson.lesson_type }}
+                        {{ lesson.payment_amount }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        {{ lesson.payment_amount }}
+                        {{ lesson.lesson_type }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         {{ lesson.instructors.all|join:", " }}
@@ -310,6 +320,9 @@
                             {{ lesson.lesson_number }}
                         </a>
                     </th>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ lesson.payment_amount }}
+                    </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         {{ lesson.lesson_type }}
                     </td>
