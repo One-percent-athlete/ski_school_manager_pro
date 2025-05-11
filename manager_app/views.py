@@ -230,4 +230,13 @@ def commission(request):
     else:
         messages.success(request, "请先登录。")
         return redirect("login_user")
- 
+    
+@login_required(login_url='/login_user/')
+def commission_profile(request, profile_id):
+    if request.user.is_authenticated:
+            profiles = Profile.objects.get(id=profile_id)
+            return render(request, "commission.html", {"profiles": profiles, "keyword": keyword})
+    else:
+        messages.success(request, "请先登录。")
+        return redirect("login_user")
+    
