@@ -81,7 +81,7 @@ class Profile(models.Model):
         ('0', '0'),
     )
     CUSTOMERS_EVALUATION = (
-        ('2', '%'),
+        ('2', '2'),
         ('0', '0'),
     )
     COMPANY_EVALUATION = (
