@@ -39,6 +39,9 @@
                     </th>
                     {% if request.user.profile.contract_type == "管理" %}
                     <th scope="col" class="px-6 py-3">
+                        效益
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         提成比率
                     </th>
                     <th scope="col" class="px-6 py-3">
@@ -72,6 +75,9 @@
                         {{ profile.contract_type }}
                     </td>
                     {% if request.user.profile.contract_type == "管理" %}
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ totalearnings|floatformat:2 }}
+                    </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         {{ profile.fare_percentage }}
                     </td>
