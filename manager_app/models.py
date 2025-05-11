@@ -77,16 +77,16 @@ class Profile(models.Model):
         ('46', '46'),
     )
     FULL_ATTENDANCE = (
-        ('3%', '3%'),
-        ('0%', '0%'),
+        ('3', '3'),
+        ('0', '0'),
     )
     CUSTOMERS_EVALUATION = (
-        ('2%', '2%'),
-        ('0%', '0%'),
+        ('2', '%'),
+        ('0', '0'),
     )
     COMPANY_EVALUATION = (
-        ('5%', '5%'),
-        ('0%', '0%'),
+        ('5', '5'),
+        ('0', '0'),
     )
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
