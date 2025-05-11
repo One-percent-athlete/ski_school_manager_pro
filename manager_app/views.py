@@ -234,8 +234,8 @@ def commission(request):
 @login_required(login_url='/login_user/')
 def commission_profile(request, profile_id):
     if request.user.is_authenticated:
-            profiles = Profile.objects.get(id=profile_id)
-            return render(request, "commission/commission.html", {"profiles": profiles, "keyword": keyword})
+            profile = Profile.objects.get(id=profile_id)
+            return render(request, "commission/commission_profile.html", {"profile": profile})
     else:
         messages.success(request, "请先登录。")
         return redirect("login_user")
