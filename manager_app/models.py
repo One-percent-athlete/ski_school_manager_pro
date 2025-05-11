@@ -184,3 +184,4 @@ class Notification(models.Model):
     
     def __str__(self):
         return f"{self.content} - {self.author} - {self.date_created}"
+    
