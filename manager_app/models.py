@@ -58,17 +58,17 @@ class Profile(models.Model):
         ('5年以上', '5年以上'),
     )
     FARE_PECENTAGE = (
-        ('20%', '20%'),
-        ('21.5%', '21.5%'),
-        ('23%', '23%'),
-        ('24.5%', '24.5%'),
-        ('26%', '26%'),
+        ('20', '20'),
+        ('21.5', '21.5'),
+        ('23', '23'),
+        ('24.5', '24.5'),
+        ('26', '26'),
         
-        ('30%', '30%'),
-        ('31.5%', '31.5%'),
-        ('33%', '33%'),
-        ('34.5%', '34.5%'),
-        ('36%', '36%'),
+        ('30', '30'),
+        ('31.5', '31.5'),
+        ('33', '33'),
+        ('34.5', '34.5'),
+        ('36', '36'),
         
         ('40%', '40%'),
         ('41.5%', '41.5%'),
@@ -105,7 +105,7 @@ class Profile(models.Model):
     snowboard = models.CharField("级别", max_length=50, choices=SNOWBOARD, default='单板1级')
     accommodation = models.CharField("宿舍", max_length=20, blank=True)
     years_choices = models.CharField("経験年数", choices=YEAR_CHOICES, default='1年')
-    fare_percentage = models.CharField("提成比率", max_length=50, choices=FARE_PECENTAGE, default='20%')
+    fare_percentage = models.CharField("提成比率", max_length=50, choices=FARE_PECENTAGE, default='20')
     full_attendance = models.CharField("全勤提成", max_length=50, choices=FULL_ATTENDANCE, default='3%')
     customers_evaluation = models.CharField("客人評価", max_length=50, choices=CUSTOMERS_EVALUATION, default='2%')
     company_evaluation = models.CharField("公司評価", max_length=50, choices=COMPANY_EVALUATION, default='5%')
