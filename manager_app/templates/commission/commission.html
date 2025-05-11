@@ -63,9 +63,11 @@
                 {% for profile in profiles %}
                 <tr class="border-b">
                     <th scope="row" class="pl-6 pr-3 py-4 font-medium whitespace-nowrap text-gray-900">
-                        {{ profile.fullname }}
+                        <a href="{% url 'commission_profile' profile.id %}">
+                            {{ profile.fullname }}
+                        </a>
                     </th>
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class=" px-6 py-4 whitespace-nowrap">
                         {{ profile.user }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
