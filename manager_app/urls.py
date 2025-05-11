@@ -21,5 +21,5 @@ urlpatterns = [
     path('profile_lesson/', views.profile_lesson, name="profile_lesson"),
 
     path('commission/', views.commission, name="commission"),
-    # path('commission/<int:profile_id>/', views.commission_profile, name="commission_profile"),
+    path('commission/<int:profile_id>/', views.commission_profile, name="commission_profile"),
 ]
