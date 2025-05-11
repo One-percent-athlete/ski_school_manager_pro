@@ -76,7 +76,7 @@
                     </td>
                     {% if request.user.profile.contract_type == "管理" %}
                     <td class="px-6 py-4 whitespace-nowrap">
-                        {{ totalearnings|floatformat:2 }}
+                        {{ total_earning|floatformat:2 }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         {{ profile.fare_percentage }}
