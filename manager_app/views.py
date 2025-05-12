@@ -226,6 +226,9 @@ def commission(request):
         else:
             profiles = Profile.objects.all()
             lessons = Lesson.objects.all()
+            for lesson in lessons:
+                for profile in profiles:
+                    [profile, lesson.payment_amount] 
             return render(request, "commission/commission.html", { "profiles": profiles, "lessons": lessons })
     else:
         messages.success(request, "请先登录。")
