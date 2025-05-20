@@ -219,17 +219,17 @@ def profile_lesson(request):
 @login_required(login_url='/login_user/')
 def commission(request):
     if request.user.is_authenticated:
+        profiles = Profile.objects.all()
+        lessons = Lesson.objects.all()
+        result_list = []
+        keyword = ''
+        for lesson in lessons:
+            for profile in profiles:
+                [profile, lesson.payment_amount] 
         if request.method == "POST":
             keyword = request.POST['keyword']
-            profiles = Profile.objects.filter(fullname__contains=keyword).order_by('-date_created')
-            return render(request, "commission/commission.html", {"profiles": profiles, "keyword": keyword})
-        else:
-            profiles = Profile.objects.all()
-            lessons = Lesson.objects.all()
-            for lesson in lessons:
-                for profile in profiles:
-                    [profile, lesson.payment_amount] 
-            return render(request, "commission/commission.html", { "profiles": profiles, "lessons": lessons })
+            result_list = Profile.objects.filter(fullname__contains=keyword).order_by('-date_created')
+        return render(request, "commission/commission.html", {"profiles": profiles, "keyword": keyword, "lessons": lessons, "result_list": result_list})
     else:
         messages.success(request, "请先登录。")
         return redirect("login_user")
