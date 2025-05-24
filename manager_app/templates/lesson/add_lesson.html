@@ -3,7 +3,7 @@
 新排课登録
 {% endblock %}
 {% block content %}
-<div class="p-4 sm:ml-64">
+<div class="sm:ml-64">
     <h1 class="text-4xl py-10">新排课</h1>
     <form class="space-y-4" action="{% url 'add_lesson' %}" method="post">
         {% csrf_token %}
