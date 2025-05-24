@@ -73,11 +73,11 @@ WSGI_APPLICATION = 'manager.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'CgpXfBmyLzMTnzmOJKlZkOErMEjJhuNa',
+        'HOST': 'centerbeam.proxy.rlwy.net',
+        'PORT': '27319',
     }
 }
 
